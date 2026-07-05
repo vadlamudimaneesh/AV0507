@@ -36,11 +36,13 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-          # Leave VITE_BASE unset for a user/org page or custom domain.
-          # For a project page (username.github.io/REPO-NAME/) add a repo
-          # variable VITE_BASE=/REPO-NAME/ and set pathSegmentsToKeep=1 in
+          # This repo deploys as a GitHub project page, so the site lives at
+          # https://<user>.github.io/<repo>/ and the base path must be /<repo>/.
+          # Derived automatically from the repo name. If you later move to a
+          # user/org page or a custom domain (served at root), set the repo
+          # variable VITE_BASE=/ and change pathSegmentsToKeep back to 0 in
           # public/404.html.
-          VITE_BASE: ${{ vars.VITE_BASE }}
+          VITE_BASE: ${{ vars.VITE_BASE || format('/{0}/', github.event.repository.name) }}
         run: npm run build
 
       - name: Upload Pages artifact
