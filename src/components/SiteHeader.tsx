@@ -44,7 +44,7 @@ export function SiteHeader({ transparent }: SiteHeaderProps) {
     >
       <div className="container-editorial flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="font-serif text-xl md:text-2xl tracking-tight text-foreground">
-          Møller <span className="text-accent">&</span> Ryde
+          Archz Studiø
         </Link>
         <nav className="hidden lg:flex items-center gap-9 text-[13px] tracking-wide">
           {NAV.map((n) => (

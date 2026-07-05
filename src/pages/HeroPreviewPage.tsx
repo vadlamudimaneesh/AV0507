@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SiteShell } from "@/components/SiteShell";
 import { HERO_PANORAMA_URL } from "@/lib/data-store";
+import { asset } from "@/lib/utils";
 
 export const HERO_OPTION_CHOICES = [
   {
@@ -64,7 +65,7 @@ export function HeroPreviewPage() {
         <div className="mt-12 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-7">
             <div className="aspect-[2/1] overflow-hidden bg-muted border border-border/60 relative">
-              <img src={choice.preview} alt={choice.title} className="w-full h-full object-cover" />
+              <img src={asset(choice.preview)} alt={choice.title} className="w-full h-full object-cover" />
               {"recommended" in choice && choice.recommended && (
                 <span className="absolute top-3 left-3 bg-accent text-accent-foreground text-[10px] uppercase tracking-widest px-2 py-1">
                   Recommended
@@ -90,7 +91,7 @@ export function HeroPreviewPage() {
                 }`}
               >
                 <div className="flex gap-4">
-                  <img src={opt.preview} alt="" className="w-24 h-16 object-cover shrink-0 bg-muted" />
+                  <img src={asset(opt.preview)} alt="" className="w-24 h-16 object-cover shrink-0 bg-muted" />
                   <div>
                     <div className="font-serif text-lg">{opt.title}</div>
                     <div className="text-xs text-accent mt-1">{opt.mood}</div>

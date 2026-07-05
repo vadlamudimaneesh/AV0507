@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="border-t border-border/60 mt-auto">
       <div className="container-editorial py-16 grid gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
-          <div className="font-serif text-2xl">Møller & Ryde</div>
+          <div className="font-serif text-2xl">Archz Studiø</div>
           <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
             Architecture of quiet intention — interiors and façades from Copenhagen, Paris and Rotterdam.
           </p>
@@ -36,7 +36,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="container-editorial pb-8 flex flex-wrap justify-between gap-4 text-xs text-muted-foreground border-t border-border/40 pt-6">
-        <span>© {new Date().getFullYear()} Møller & Ryde. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Archz Studiø. All rights reserved.</span>
         <div className="flex gap-6">
           <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
           <Link to="/terms" className="hover:text-foreground">Terms</Link>

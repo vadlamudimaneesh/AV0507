@@ -7,13 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview",
-    "generate:frames": "node scripts/generate-hero-frames.mjs",
-    "download:panorama": "node scripts/download-hero-panorama.mjs",
-    "download:hero-options": "node scripts/download-hero-options.mjs",
-    "download:indian-hero": "node scripts/download-indian-hero-options.mjs",
-    "download:villa-hero": "node scripts/download-villa-hero-options.mjs",
-    "apply:hero": "node scripts/apply-custom-hero.mjs assets/hero-panorama-generated.png"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.18",
@@ -40,7 +34,6 @@
     "@types/three": "^0.185.0",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
-    "sharp": "^0.34.5",
     "tailwindcss": "^4.3.2",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"

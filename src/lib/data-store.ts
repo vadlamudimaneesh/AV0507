@@ -1,11 +1,11 @@
 import { supabase, isSupabaseConfigured } from "./supabase";
 import type { ContactSubmission, Project, ProjectCategory } from "./types";
 import { SEED_PROJECTS } from "./types";
-import { slugify } from "./utils";
+import { asset, slugify } from "./utils";
 
-const STORAGE_KEY = "moller-ryde-projects";
-const CONTACT_KEY = "moller-ryde-contacts";
-const ADMIN_KEY = "moller-ryde-admin";
+const STORAGE_KEY = "archz-studiø-projects";
+const CONTACT_KEY = "archz-studiø-contacts";
+const ADMIN_KEY = "archz-studiø-admin";
 
 function readLocalProjects(): Project[] {
   const raw = localStorage.getItem(STORAGE_KEY);
@@ -41,7 +41,9 @@ export function setAdminSession(active: boolean) {
 export async function loginAdmin(email: string, password: string): Promise<{ error?: string }> {
   if (isSupabaseConfigured && supabase) {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return error ? { error: error.message } : {};
+    if (error) return { error: error.message };
+    setAdminSession(true);
+    return {};
   }
   if (email === "admin@studio.com" && password === "admin123") {
     setAdminSession(true);
@@ -192,7 +194,7 @@ export async function uploadImage(file: File): Promise<string> {
   });
 }
 
-export const HERO_PANORAMA_URL = "/hero-panorama.webp";
+export const HERO_PANORAMA_URL = asset("hero-panorama.webp");
 
 /** Room zone labels — calibrated for the Indian metro city open-plan panorama */
 export const HERO_ZONE_LABELS = [
